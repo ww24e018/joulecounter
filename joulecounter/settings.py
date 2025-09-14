@@ -125,7 +125,7 @@ USE_TZ = True
 
 FORCE_SCRIPT_NAME = '/jc'
 
-STATIC_URL = FORCE_SCRIPT_NAME + 'static/'
+STATIC_URL = BASE_DIR / 'static/'
 
 # by vibe
 STATIC_ROOT = BASE_DIR / "staticfiles"
