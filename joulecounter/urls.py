@@ -22,4 +22,5 @@ import counter.urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('counter.urls')),
+    path('jc/accounts/', include('django.contrib.auth.urls')),
 ]
