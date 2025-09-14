@@ -1,0 +1,12 @@
+<!-- counter/log_item.html -->
+{% extends "base.html" %}
+{% block title %}Log Item{% endblock %}
+{% block content %}
+<h2>Log Food Item</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Log</button>
+</form>
+<a href="{% url 'overview' %}">Back</a>
+{% endblock %}
