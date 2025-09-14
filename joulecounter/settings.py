@@ -129,6 +129,7 @@ LOGIN_REDIRECT_URL = "/jc/"
 STATIC_URL = '/jc/static/'
 
 print(f'--{os.getenv("CSRF_TRUSTED_ORIGINS")}--')
+print(f'--{os.getenv("DJANGO_SUPERUSER_PASSWORD")}--')
 CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_TRUSTED_ORIGINS')]
 CSRF_COOKIE_SECURE = False
 
