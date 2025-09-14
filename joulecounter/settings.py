@@ -134,6 +134,7 @@ else:
     STATIC_URL = 'static/'
     LOGIN_URL = '/admin/login/'
 
+print(f'--{os.getenv("JC_URL_PREFIX")}--')
 print(f'--{os.getenv("CSRF_TRUSTED_ORIGINS")}--')
 print(f'--{os.getenv("DJANGO_SUPERUSER_PASSWORD")}--')
 print(f'--{os.getenv("SECRET_KEY")}--')
