@@ -23,6 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# not sure the secrets thing _here_ works in prod?
 SECRET_KEY = os.getenv('SECRET_KEY') or secrets.token_urlsafe(50)
 
 
@@ -130,6 +131,7 @@ STATIC_URL = '/jc/static/'
 
 print(f'--{os.getenv("CSRF_TRUSTED_ORIGINS")}--')
 print(f'--{os.getenv("DJANGO_SUPERUSER_PASSWORD")}--')
+print(f'--{os.getenv("SECRET_KEY")}--')
 CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_TRUSTED_ORIGINS')]
 CSRF_COOKIE_SECURE = False
 
