@@ -5,6 +5,7 @@ services:
       args:
         CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS}
         DJANGO_SUPERUSER_PASSWORD: ${DJANGO_SUPERUSER_PASSWORD}
+        JC_URL_PREFIX: ${JC_URL_PREFIX}
     ports:
       - "8010:8010"
     environment:
@@ -12,6 +13,7 @@ services:
       DJANGO_SUPERUSER_PASSWORD: ${DJANGO_SUPERUSER_PASSWORD}
       DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS:-10.0.0.4}
       CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS}
+      JC_URL_PREFIX: ${JC_URL_PREFIX:jc/}
     volumes:
       - sqlite_data:/app/data
 

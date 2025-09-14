@@ -124,10 +124,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-FORCE_SCRIPT_NAME = '/jc'
-LOGIN_URL = "/jc/admin/login/"
-LOGIN_REDIRECT_URL = "/jc/"
-STATIC_URL = '/jc/static/'
+JC_URL_PREFIX = os.getenv('JC_URL_PREFIX')
+if JC_URL_PREFIX:
+    FORCE_SCRIPT_NAME = '/jc'
+    LOGIN_URL = "/jc/admin/login/"
+    LOGIN_REDIRECT_URL = "/jc/"
+    STATIC_URL = '/jc/static/'
+else:
+    STATIC_URL = 'static/'
+    LOGIN_URL = '/admin/login/'
 
 print(f'--{os.getenv("CSRF_TRUSTED_ORIGINS")}--')
 print(f'--{os.getenv("DJANGO_SUPERUSER_PASSWORD")}--')
