@@ -4,6 +4,7 @@ services:
       context: .
       args:
         CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS}
+        DJANGO_ADMIN_PASS: ${DJANGO_ADMIN_PASS}
     ports:
       - "8010:8010"
     environment:
