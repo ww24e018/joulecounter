@@ -118,11 +118,13 @@ USE_I18N = True
 
 USE_TZ = True
 
+# TODO remove default ?
+FORCE_SCRIPT_NAME = os.getenv('SCRIPT_NAME', '/jc')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = FORCE_SCRIPT_NAME + 'static/'
 
 # by vibe
 STATIC_ROOT = BASE_DIR / "staticfiles"
