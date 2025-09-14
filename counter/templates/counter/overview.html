@@ -1,0 +1,11 @@
+<!-- templates/counter/overview.html -->
+{% extends "base.html" %}
+{% block content %}
+<h2>JouleCounter</h2>
+<ul>
+  <li><a href="{% url 'add_template' %}">Add Food Template</a></li>
+  <li><a href="{% url 'log_item' %}">Log Food Item</a></li>
+  <li><a href="{% url 'daily_summary' 0 %}">Today’s Summary</a></li>
+  <li><a href="{% url 'daily_summary' 1 %}">Yesterday</a></li>
+</ul>
+{% endblock %}
