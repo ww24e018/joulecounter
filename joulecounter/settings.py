@@ -124,8 +124,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 FORCE_SCRIPT_NAME = '/jc'
-
-STATIC_URL = 'static/'
+LOGIN_URL = "/jc/accounts/login/"
+LOGIN_REDIRECT_URL = "/jc/"
+STATIC_URL = '/jc/static/'
 
 # by vibe
 STATIC_ROOT = BASE_DIR / "staticfiles"
