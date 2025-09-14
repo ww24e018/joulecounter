@@ -4,6 +4,7 @@ services:
     ports:
       - "8010:8010"
     environment:
+      SECRET_KEY: ${SECRET_KEY:-}
       DJANGO_SUPERUSER_PASSWORD: ${DJANGO_ADMIN_PASS}
     volumes:
       - ./db.sqlite3:/app/db.sqlite3
