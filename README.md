@@ -3,7 +3,7 @@
 might build with:
 
 ```
-export DJANGO_ADMIN_PASS=MySecret
+export DJANGO_SUPERUSER_PASSWORD=MySecret
 
 docker-compose up --build
 ```
