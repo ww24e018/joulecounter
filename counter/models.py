@@ -1,4 +1,11 @@
+import json
+
+from django.contrib.auth.decorators import login_required
+from django.core import serializers
 from django.db import models
+from django.http import HttpResponseBadRequest, JsonResponse
+from django.views.decorators.http import require_http_methods
+
 
 class FoodItemTemplate(models.Model):
     name = models.CharField(max_length=100)
@@ -10,6 +17,27 @@ class FoodItemTemplate(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.modifier})" if self.modifier else self.name
+
+    #   --- static helpers -------------------------------------------------
+    @staticmethod
+    @require_http_methods(["GET"])
+    @login_required
+    def export_view(request):
+        return JsonResponse(
+            json.loads(serializers.serialize('json', FoodItemTemplate.objects.all())),
+            safe=False
+        )
+
+    @staticmethod
+    @require_http_methods(["POST"])
+    @login_required
+    def import_view(request):
+        try:
+            for obj in serializers.deserialize('json', request.body):
+                obj.save()
+        except Exception as e:
+            return HttpResponseBadRequest(str(e))
+        return JsonResponse({'status': 'ok'})
 
 
 class FoodItemLog(models.Model):
