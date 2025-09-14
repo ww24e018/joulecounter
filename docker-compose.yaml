@@ -7,4 +7,7 @@ services:
       SECRET_KEY: ${SECRET_KEY:-}
       DJANGO_SUPERUSER_PASSWORD: ${DJANGO_ADMIN_PASS}
     volumes:
-      - ./db.sqlite3:/app/db.sqlite3
+      - sqlite_data:/app/data
+
+volumes:
+  sqlite_data:
