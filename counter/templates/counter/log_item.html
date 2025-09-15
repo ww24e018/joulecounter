@@ -1,12 +1,18 @@
 <!-- counter/log_item.html -->
 {% extends "base.html" %}
+{% load widget_tweaks %}
+
 {% block title %}Log Item{% endblock %}
 {% block content %}
+<div class="container py-5">
 <h2>Log Food Item</h2>
 <form method="post">
   {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log</button>
+  <div class="mb-3">
+  <label class="form-label">{{ form.template.label }}</label>
+  {% render_field form.template class="form-select" %}
+  <button type="submit" class="btn btn-primary mt-3">Log</button>
+  </div>
 </form>
-<a href="{% url 'overview' %}">Back</a>
+</div>
 {% endblock %}
