@@ -15,4 +15,4 @@ class FoodLogForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['template'].queryset = FoodItemTemplate.objects.all()
+        self.fields['template'].queryset = FoodItemTemplate.objects.all().order_by('name')
