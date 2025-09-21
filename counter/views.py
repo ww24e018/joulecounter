@@ -31,7 +31,7 @@ def log_item(request):
             return redirect('log_item')
     else:
         form = FoodLogForm()
-    recently_logged_items = FoodItemLog.objects.order_by('-eaten_at')
+    recently_logged_items = FoodItemLog.objects.order_by('-eaten_at')[:10]
     return render(request, 'counter/log_item.html', {'form': form, 'recently_logged_items': recently_logged_items})
 
 @login_required
