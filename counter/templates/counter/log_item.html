@@ -16,8 +16,20 @@
     <div>
       <button type="submit" class="btn btn-primary">Log</button>
       <a class="btn btn-primary" role="button" href="{% url 'daily_summary' 0 %}">Today’s Summary</a>
+      <a class="btn btn-primary" role="button" href="{% url 'overview' %}">Overview</a>
 
     </div>
+    <h2 class="mt-2"><del>Re-log</del> recent items</h2>
+    <div>
+        <ul>
+      {% for log in recently_logged_items %}
+        <li>{{ log.template }} ({{ log.template.joules }} J)</li>
+      {% empty %}
+        <li>Nothing logged.</li>
+      {% endfor %}
+    </ul>
+    </div>
+
 </form>
 </div>
 {% endblock %}

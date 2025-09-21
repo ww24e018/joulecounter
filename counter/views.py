@@ -28,10 +28,11 @@ def log_item(request):
         form = FoodLogForm(request.POST)
         if form.is_valid():
             FoodItemLog.objects.create(template=form.cleaned_data['template'])
-            return redirect('overview')
+            return redirect('log_item')
     else:
         form = FoodLogForm()
-    return render(request, 'counter/log_item.html', {'form': form})
+    recently_logged_items = FoodItemLog.objects.order_by('-eaten_at')
+    return render(request, 'counter/log_item.html', {'form': form, 'recently_logged_items': recently_logged_items})
 
 @login_required
 def daily_summary(request, days_back=0):
