@@ -2,14 +2,20 @@
 {% extends "base.html" %}
 {% block title %}Summary{% endblock %}
 {% block content %}
-<h2>{{ date }} – {{ total }} J</h2>
-<ul>
-  {% for log in logs %}
-    <li>{{ log.template }} ({{ log.template.joules }} J)</li>
-  {% empty %}
-    <li>Nothing logged.</li>
-  {% endfor %}
-</ul>
-<a href="{% url 'daily_summary' days_back|add:'1' %}">Earlier</a>
-<a href="{% url 'overview' %}">Back</a>
+<div class="container-fluid py-2">
+    <h2>{{ date }} – {{ total }} J</h2>
+    <ul>
+      {% for log in logs %}
+        <li>{{ log.template }} ({{ log.template.joules }} J)</li>
+      {% empty %}
+        <li>Nothing logged.</li>
+      {% endfor %}
+    </ul>
+    <div>
+        <a class="btn btn-primary" role="button" href="{% url 'log_item' %}">Log item</a>
+        <a class="btn btn-primary" role="button" href="{% url 'daily_summary' days_back|add:'1' %}">Earlier</a>
+        <a class="btn btn-primary" role="button" href="{% url 'overview' %}">Overview</a>
+
+    </div>
+</div>
 {% endblock %}

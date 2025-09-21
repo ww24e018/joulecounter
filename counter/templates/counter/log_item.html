@@ -8,11 +8,16 @@
 <h2>Log Food Item</h2>
 <form method="post">
   {% csrf_token %}
-  <div class="mb-3">
-  <label class="form-label">{{ form.template.label }}</label>
-  {% render_field form.template class="form-select" %}
-  <button type="submit" class="btn btn-primary mt-3">Log</button>
-  </div>
+    <div class="mb-3">
+    <label class="form-label">{{ form.template.label }}</label>
+    {% render_field form.template class="form-select" %}
+
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary">Log</button>
+      <a class="btn btn-primary" role="button" href="{% url 'daily_summary' 0 %}">Today’s Summary</a>
+
+    </div>
 </form>
 </div>
 {% endblock %}
